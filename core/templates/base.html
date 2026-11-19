@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>COVID Tracing</title></head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        {% if user.is_authenticated %}
+            {{ user.first_name }} —
+            <a href="/logout/">Logout</a> |
+            <a href="{% url 'add_establishment' %}">Add establishment</a> | 
+            <a href="{% url 'search' %}">Search</a> |
+            <a href="{% url 'reserve' %}">Reserve</a> |
+            <a href="{% url 'report_positive' %}">Report positive</a> |
+            <a href="{% url 'my_reservations' %}">My reservations</a> |
+        {% else %}
+            <a href="/login/">Login</a> | <a href="/signup/">Signup</a> |
+            <a href="{% url 'stats' %}">Stats</a> 
+        {% endif %}
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

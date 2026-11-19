@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Report a positive test</h2>
+<p>Declare the date you tested positive for COVID-19.</p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Report</button>
+</form>
+{% endblock %}

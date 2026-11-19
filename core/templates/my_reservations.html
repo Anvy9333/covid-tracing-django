@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reservations at my establishments</h2>
+<table border="1" cellpadding="5">
+    <tr><th>Date</th><th>Establishment</th><th>Client</th><th>People</th></tr>
+    {% for r in reservations %}
+        <tr>
+            <td>{{ r.date }}</td>
+            <td>{{ r.establishment.name }}</td>
+            <td>{{ r.client.first_name }} {{ r.client.last_name }}</td>
+            <td>{{ r.nb_people }}</td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="4">No reservations yet.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

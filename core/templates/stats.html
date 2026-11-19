@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Pandemic statistics — last 30 days</h2>
+<ul>
+    <li>Positive cases detected: <b>{{ nb_positive }}</b></li>
+    <li>People in contact with a positive case: <b>{{ nb_contacted }}</b></li>
+</ul>
+{% endblock %}

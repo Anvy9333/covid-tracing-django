@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Search establishments</h2>
+
+<form method="get">
+    Name: <input type="text" name="name">
+    Compliance:
+    <select name="compliance">
+        <option value="">Any</option>
+        <option value="compliant">Compliant</option>
+        <option value="noncompliant">Non-compliant</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+<hr>
+<ul>
+    {% for e in results %}
+        <li>
+            {{ e.name }} — capacity {{ e.capacity }} —
+            {% if e.is_compliant %}✅ compliant{% else %}❌ non-compliant{% endif %}
+        </li>
+    {% empty %}
+        <li>No establishments found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

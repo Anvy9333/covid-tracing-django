@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Signup</h2>
+<p>CAPTCHA — type this word <b>backwards</b>: <b>{{ captcha_word }}</b></p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+{% endblock %}
